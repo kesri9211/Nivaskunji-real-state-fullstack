@@ -20,7 +20,7 @@ import Heart from "../../components/Heart/Heart";
 
 
 /*
-
+uselocation hook is used to get the current location of the page from url
 */
 
 const Property = () => {

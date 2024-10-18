@@ -2,6 +2,7 @@ import axios from "axios";
 import dayjs from "dayjs";
 import { toast } from "react-toastify";
 
+//axios is used to make api calls to the server and react-toastify is used to show the toast messages.
 export const api = axios.create({
   baseURL: "http://localhost:8000/api",
 });
@@ -178,6 +179,8 @@ export const createResidency = async (data, token) => {
         },
       }
     )
+    //console.log(res);
+    return res.data["residency"];
   }catch(error)
   {
     throw error

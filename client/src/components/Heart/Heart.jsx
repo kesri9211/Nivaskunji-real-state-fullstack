@@ -18,6 +18,7 @@ const Heart = ({id}) => {
         setUserDetails,
       } = useContext(UserDetailContext);
 
+      //make it persistent
       useEffect(()=> {
             setHeartColor(()=> checkFavourites(id, favourites))
       },[favourites])

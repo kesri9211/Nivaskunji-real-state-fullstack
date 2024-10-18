@@ -7,7 +7,7 @@ import {auth} from 'express-oauth2-jwt-bearer';
 
 const jwtCheck = auth({
     audience:"http://localhost:8000",
-    issuerBaseURL:"https://dev-bzsqqegri8nq5tya.us.auth0.com", //same as domain id
+    issuerBaseURL:"https://dev-bzsqqegri8nq5tya.us.auth0.com", //same as domain id in main.jsx
     tokenSigningAlg:"RS256", // RS256 is the default method of token signin
 })
 export default jwtCheck;

@@ -6,6 +6,8 @@ import PropertyCard from "../../components/PropertyCard/PropertyCard";
 import "../Properties/Properties.css";
 import UserDetailContext from "../../context/UserDetailContext";
 
+//same as properties page but with some changes, first fetch booking from user details (userDetailContext) and then filter the properties based on the booking id
+
 const Bookings = () => {
   const { data, isError, isLoading } = useProperties();
   const [filter, setFilter] = useState("");
@@ -40,23 +42,20 @@ const Bookings = () => {
         <SearchBar filter={filter} setFilter={setFilter} />
 
         <div className="paddings flexCenter properties">
-          {
+          {data
+            .filter((property) =>
+              bookings.map((booking) => booking.id).includes(property.id)
+            )
 
-            data
-              .filter((property) =>
-                bookings.map((booking) => booking.id).includes(property.id)
-              )
-
-              .filter(
-                (property) =>
-                  property.title.toLowerCase().includes(filter.toLowerCase()) ||
-                  property.city.toLowerCase().includes(filter.toLowerCase()) ||
-                  property.country.toLowerCase().includes(filter.toLowerCase())
-              )
-              .map((card, i) => (
-                <PropertyCard card={card} key={i} />
-              ))
-          }
+            .filter(
+              (property) =>
+                property.title.toLowerCase().includes(filter.toLowerCase()) ||
+                property.city.toLowerCase().includes(filter.toLowerCase()) ||
+                property.country.toLowerCase().includes(filter.toLowerCase())
+            )
+            .map((card, i) => (
+              <PropertyCard card={card} key={i} />
+            ))}
         </div>
       </div>
     </div>

@@ -15,6 +15,8 @@ import Bookings from "./pages/Bookings/Bookings";
 import Favourites from "./pages/Favourites/Favourites";
 
 /*
+app.jsx is the main component of the application. It wraps the entire application with the UserDetailContext and QueryClientProvider.
+It also uses the BrowserRouter to provide routing to the application. The Routes component is used to define the routes of the application.
 userDetailsContext is used to store user details like favourites, bookings, and token after login.
 
 */

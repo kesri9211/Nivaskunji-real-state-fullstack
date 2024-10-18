@@ -6,6 +6,7 @@ import PropertyCard from "../../components/PropertyCard/PropertyCard";
 import "../Properties/Properties.css";
 import UserDetailContext from "../../context/UserDetailContext";
 
+//same as Properties.jsx but with some changes, first fetch favourites from user details (userDetailContext) and then filter the properties based on the favourites id
 const Favourites = () => {
   const { data, isError, isLoading } = useProperties();
   const [filter, setFilter] = useState("");

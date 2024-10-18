@@ -10,8 +10,10 @@ import useFavourites from "../../hooks/useFavourites";
 import useBookings from "../../hooks/useBookings";
 
 /*
-Layout component is used to wrap the Header, Footer, and Outlet components. It also uses the useAuth0 hook to get the user details and authentication status. It is the first component that is rendered when the user visits the website. It also uses the UserDetailContext to store the user details like favourites, bookings, and token after login. The useMutation hook is used to create a user in the database if the user is authenticated.
-mutation hook is used to create a user in the database if the user is authenticated.
+Layout component is used to wrap the Header, Footer, and Outlet components. outlet component render the child components of the current route.
+It also uses the useAuth0 hook to get the user details and authentication status.
+It is the first component that is rendered when the user visits the website. It also uses the UserDetailContext to store the user details like favourites, bookings, and token after login. 
+The useMutation hook is used to create a user in the database if the user is authenticated.
 secure mongo db by using token getTokenAndRegsiter function is used to get the token and register the user.
 */
 const Layout = () => {
@@ -39,8 +41,8 @@ const Layout = () => {
       
       localStorage.setItem("access_token", res);
       setUserDetails((prev) => ({ ...prev, token: res }));
-      console.log(res);
-      //mutate(res)
+      //console.log(res);
+      mutate(res)
     };
 
     isAuthenticated && getTokenAndRegsiter();

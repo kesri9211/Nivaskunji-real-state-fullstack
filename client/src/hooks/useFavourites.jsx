@@ -4,6 +4,7 @@ import { useQuery } from "react-query";
 import { useAuth0 } from "@auth0/auth0-react";
 import { getAllFav } from "../utils/api";
 
+//custom hook to get all the favourites of the user after login
 const useFavourites = () => {
   const { userDetails, setUserDetails } = useContext(UserDetailContext);
   const queryRef = useRef();
